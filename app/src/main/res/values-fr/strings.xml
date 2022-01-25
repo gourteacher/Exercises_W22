@@ -3,4 +3,5 @@
     <string name="app_name">Exercices</string>
     <string name="hello_message">Bonjour!</string>
     <string name="button_text">Juste un bouton</string>
+    <string name="enter_phone_number">Numéro de téléphone</string>
 </resources>

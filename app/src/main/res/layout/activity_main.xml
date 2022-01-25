@@ -27,8 +27,16 @@
         android:id="@+id/bottomtext"
         android:layout_width="204dp"
         android:layout_height="77dp"
-        android:hint="@string/app_name"
-        android:hintTextColor="#757575" />
+        android:hint="@string/app_name" />
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_phone_number"
+        android:inputType="number|phone"
+        android:minHeight="48dp" />
 
 
 </LinearLayout>
