@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Exercises</string>
-    <string name="hello_message"> Hello world   </string>
-    <string name="button_text"> I\'m a button </string>
+    <string name="hello_world">Hello World!</string>
+    <string name="click_me">Click on me</string>
+    <string name="text">This is a textView</string>
+    <string name="edit">This is an editText</string>
+    <string name="btn">This is a button</string>
+    <string name="cbox">This is a checkbox</string>
 </resources>
