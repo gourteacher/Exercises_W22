@@ -27,8 +27,7 @@
         android:id="@+id/bottomtext"
         android:layout_width="204dp"
         android:layout_height="77dp"
-        android:hint="@string/app_name"
-        android:hintTextColor="#757575" />
+        android:hint="@string/app_name" />
 
 
 </LinearLayout>
