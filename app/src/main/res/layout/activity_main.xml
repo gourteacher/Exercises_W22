@@ -42,7 +42,7 @@
         android:id="@+id/btn_image"
         android:layout_width="256dp"
         android:layout_height="68dp"
-        app:srcCompat="@drawable/logo_algonquin" />
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
 
 </LinearLayout>
