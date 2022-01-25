@@ -7,53 +7,48 @@
 
     <TextView
         android:layout_columnWeight="1"
-
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
-        android:text="@string/text"       />
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text View"       />
     <EditText
         android:layout_columnWeight="2"
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
-        android:text="@string/edit"       />
-
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text View"       />
     <Button
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
         android:layout_columnWeight="1"
-
-        android:text="@string/btn" />
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"/>
 
     <ImageButton
         android:layout_columnWeight="2"
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/avatar2"/>
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"/>
 
     <CheckBox
         android:layout_columnWeight="1"
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
-        android:text="@string/cbox"/>
-
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkbox"/>
     <RadioButton
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
         android:layout_columnWeight="2"
-        android:text="@string/btn" />
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Radio Button" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:layout_height="90dp"
-        android:layout_width="130dp"
-        android:layout_margin="10dp"
+    <Switch
         android:layout_columnWeight="1"
-
-        android:text="@string/this_is_switch" />
+        android:layout_gravity="fill_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch"/>
 
 </GridLayout>
