@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,5 +43,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        ImageButton btn3 = findViewById(R.id.btn_image);
+        btn.setOnClickListener( (vw) -> {
+            int width = btn.getWidth();
+            int height = vw.getHeight();
+
+        });
     }
 }
