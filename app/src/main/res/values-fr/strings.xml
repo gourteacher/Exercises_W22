@@ -4,4 +4,6 @@
     <string name="hello_message">Bonjour!</string>
     <string name="button_text">Juste un bouton</string>
     <string name="enter_phone_number">Numéro de téléphone</string>
+    <string name="i_m_a_switch">I\'m a switch</string>
+    <string name="i_m_a_radio_button">I\'m a radio button</string>
 </resources>
