@@ -6,4 +6,5 @@
     <string name="edit">This is an editText</string>
     <string name="btn">This is a button</string>
     <string name="cbox">This is a checkbox</string>
+    <string name="this_is_switch">This is a switch</string>
 </resources>
