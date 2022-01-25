@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         cb.setOnCheckedChangeListener( ( b, c) -> {
-            Toast.makeText(MainActivity.this, "You clicked on checkbow", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "You clicked on checkbox", Toast.LENGTH_SHORT).show();
             if(c)
                 radio.setChecked(true);
             else
