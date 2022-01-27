@@ -3,6 +3,7 @@ package com.cst2335.exercises;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.button);
         btn.setText("The view was previously "+ oldText); //on startup
 
-        /*
+        btn.setOnClickListener(new View.OnClickListener() { //anonymous class
+            @Override
+            public void onClick(View v) {
+                topView.setText("Edit text has " + bottom.getText());
+            }
+        });
+
+        /* Alternate version for button onClick method : Lambda function
         btn.setOnClickListener(  (  click ) ->
         {
             //when  you click
@@ -35,19 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         }   ); //OnCLickListener goes in here
         */
-        btn.setOnClickListener(new View.OnClickListener() { //anonymous class
-            @Override
-            public void onClick(View v) {
-                topView.setText("Edit text has " + bottom.getText());
-            }
-        });
 
 
-        ImageButton btn3 = findViewById(R.id.btn_image);
-        btn.setOnClickListener( (vw) -> {
-            int width = btn.getWidth();
-            int height = vw.getHeight();
-
-        });
+        ImageButton btn_img = findViewById(R.id.btn_image);
+        //Done with Lambda function
+        btn_img.setOnClickListener( vw -> topView.setText("You clicked on Image View") );
     }
 }
