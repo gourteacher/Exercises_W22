@@ -11,14 +11,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override   //public  static void main(String args[])
+    @Override  
     //this is our starting point
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //calls parent onCreate()
         setContentView( R.layout.activity_main ); //loads XML on screen
 
-        CheckBox cb =        findViewById(R.id.check);
+        CheckBox cb =  findViewById(R.id.check);
 
         RadioButton radio = findViewById(R.id.radio);
         SwitchCompat sw = findViewById(R.id.sw);
