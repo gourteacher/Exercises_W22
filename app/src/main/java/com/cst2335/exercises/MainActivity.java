@@ -1,44 +1,80 @@
 package com.cst2335.exercises;
 
 
+
+
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-
 import android.os.Bundle;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
+import androidx.annotation.NonNull;
+import android.util.Log;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "StateChange";
 
-    @Override  
-    //this is our starting point
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); //calls parent onCreate()
-        setContentView( R.layout.activity_main ); //loads XML on screen
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        CheckBox cb =  findViewById(R.id.check);
+        Log.i(TAG, "onCreate");
 
-        RadioButton radio = findViewById(R.id.radio);
-        SwitchCompat sw = findViewById(R.id.sw);
-
-        sw.setOnCheckedChangeListener( ( btn, onOrOff) -> {
-            radio.setChecked(onOrOff);
-
-            Snackbar. make(sw, "You clicked on switch", Snackbar.LENGTH_LONG).show();
-        });
+    }
 
 
-        cb.setOnCheckedChangeListener( ( b, c) -> {
-            Toast.makeText(MainActivity.this, "You clicked on checkbox", Toast.LENGTH_SHORT).show();
-            if(c)
-                radio.setChecked(true);
-            else
-                radio.setChecked(false);
-        });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart");
+    }
 
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy");
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG, "onSaveInstanceState");
+
+        final EditText editText = findViewById(R.id.mytext);
+        CharSequence userText = editText.getText();
+        outState.putCharSequence("savedText", userText);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.i(TAG, "onRestoreInstanceState");
+
+        final EditText editText = findViewById(R.id.mytext);
+        CharSequence userText = savedInstanceState.getCharSequence("savedText");
+        editText.setText(userText);
     }
 }
