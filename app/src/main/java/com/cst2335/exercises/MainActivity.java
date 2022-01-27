@@ -9,6 +9,9 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override  
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         sw.setOnCheckedChangeListener( ( btn, onOrOff) -> {
             radio.setChecked(onOrOff);
 
-            Toast.makeText(MainActivity.this, "You clicked on switch", Toast.LENGTH_LONG).show();
+            Snackbar. make(sw, "You clicked on switch", Snackbar.LENGTH_LONG).show();
         });
 
 
