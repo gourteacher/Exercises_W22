@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Exercises</string>
-    <string name="hello_message"> Hello world   </string>
-    <string name="button_text"> I\'m a button </string>
-    <string name="enter_phone_number">Phone Number</string>
-    <string name="i_m_a_checkbox">I\'m a checkbox</string>
-    <string name="i_m_a_switch">I\'m a switch</string>
-    <string name="i_m_a_radio_button">I\'m a radio button</string>
+
+    <string name="firstButton">Go to activity 2</string>
+    <string name="secondButton">Go to activity 3</string>
+    <string name="finish">Finish</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+
+    <string name="sendEmail">Send an email</string>
+    <string name="viewURL">Go to a URL</string>
+    <string name="call">Make a phone call</string>
+
 </resources>

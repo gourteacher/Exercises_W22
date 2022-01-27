@@ -4,11 +4,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+        <Button android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
 
-    <Button
-        android:id="@+id/previousPageButton"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Go back to previous" />
+        <TextView
+            android:layout_below="@id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameField"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_below="@id/nameField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ageField"/>
+
+
+        <TextView
+            android:id="@+id/typedField"
+            android:layout_below="@id/ageField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button android:id="@+id/backButton"
+            android:layout_below="@id/typedField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back" />
+
+        <Button android:id="@+id/finishButton"
+            android:layout_below="@+id/backButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/finish" />
+
+
+    </LinearLayout>
