@@ -11,4 +11,10 @@
     <string name="viewURL">Go to a URL</string>
     <string name="call">Make a phone call</string>
 
+    <string name="hello_message"> Hello world   </string>
+    <string name="main_button"> Start Second Activity </string>
+    <string name="enter_text">Enter text</string>
+    <string name="intent_examples">Intent Examples</string>
+    <string name="start_activity_for_result">Start Activity For Result</string>
+
 </resources>

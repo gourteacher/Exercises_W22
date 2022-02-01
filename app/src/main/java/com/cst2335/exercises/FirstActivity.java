@@ -1,74 +1,84 @@
 package com.cst2335.exercises;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-import android.os.PersistableBundle;
-
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity {
 
-    private final String TAG = "FirstActivity";
+    public final static String TAG ="FirstActivity";
 
-    @Override
+    @Override     //first called
     protected void onCreate(Bundle savedInstanceState) {
-        //Your program starts here
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState); //calls parent onCreate()
 
-        EditText editText = findViewById(R.id.userInput);
+        Log.i(TAG, "In onCreate, just creating the objects");
+        setContentView( R.layout.activity_main ); //loads XML on screen
 
-        //use a Lambda function to set a click listener
-        Button page2Button = (Button) findViewById(R.id.firstButton);
-        if (page2Button != null) {
-            page2Button.setOnClickListener(clk -> {
-                Intent goToPage2 = new Intent(FirstActivity.this, SecondActivity.class);
+        SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        String previous = prefs.getString("USERINPUT", "NONE");
 
-                goToPage2.putExtra("name", "me");
-                goToPage2.putExtra("age", 20);
-                goToPage2.putExtra("typed", editText.getText().toString());
+        EditText userText = findViewById(R.id.editText);
 
-                startActivityForResult(goToPage2, 30);
-            });
-        }
-
-        Button saveButton = findViewById(R.id.saveButton);
-        if (saveButton != null) {
-            saveButton.setOnClickListener(v -> {
-                Intent examples = new Intent(FirstActivity.this, ActivityIntentExamples.class);
-                startActivity(examples);
-
-            });
-        }
-    }
-
-    @Override
-    public void onCreate (@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState){
-        super.onCreate(savedInstanceState, persistentState);
-        Toast.makeText( this, "Activity Created!",
-                Toast.LENGTH_SHORT ).show();
-    }
-
-    @Override
-    protected void onActivityResult ( int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 30) //you went to page 2
+        Button btn = findViewById(R.id.start_button);
+        btn.setOnClickListener(  (  click ) ->
         {
-            if (resultCode == 50)
-            {
-                Toast.makeText(this, "You came back from page 2 by hitting the back button",
-                        Toast.LENGTH_LONG).show();
-            }
-            else if (resultCode == RESULT_CANCELED)
-            {
-                Toast.makeText(this, "You came back from page 2 by hitting the finish button",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
+            String userTyped = userText.getText().toString();
+            //Where you are     //where we're going
+            Intent nextPage = new Intent(FirstActivity.this,   SecondActivity.class  );
+
+            nextPage.putExtra("USERINPUT", userTyped);
+            nextPage.putExtra("MONTH", 10);
+            nextPage.putExtra("OTHER INFO", 3.14);
+
+            //Make the transition:
+            startActivity(nextPage);
+
+        } ); //OnCLickListener goes in here
+
+
+        Button btn2 = findViewById(R.id.intent_examples);
+        btn2.setOnClickListener( (  click ) ->
+        {
+            Intent nextPage = new Intent(FirstActivity.this,   ActivityIntentExamples.class  );
+            //Make the transition:
+            startActivity(    nextPage  );
+        }); //OnCLickListener goes in here
+    }
+
+    @Override //screen is visible but not responding
+    protected void onStart() {
+        super.onStart();
+
+        Log.d(TAG, "In onStart, visible but not responding");
+    }
+
+    @Override //screen is visible but not responding
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "In onResume");
+    }
+
+    @Override //screen is visible but not responding
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "In onPause");
+    }
+
+    @Override //not visible
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "In onStop");
+    }
+
+    @Override  //garbage collected
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "In onDestroy");
     }
 }

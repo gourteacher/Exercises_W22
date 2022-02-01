@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".SecondActivity">
 
-        <Button android:id="@+id/saveButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save" />
+    <Button
+        android:id="@+id/permissions"
+        android:layout_width="235dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="32dp"
+        android:text="Get Permissions"
+        app:layout_constraintBottom_toTopOf="@+id/start_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
 
-        <TextView
-            android:layout_below="@id/saveButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/nameField"/>
+    <Button
+        android:id="@+id/start_camera"
+        android:layout_width="243dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="156dp"
+        android:text="Start Camera"
+        app:layout_constraintBottom_toTopOf="@+id/picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_below="@id/nameField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ageField"/>
-
-
-        <TextView
-            android:id="@+id/typedField"
-            android:layout_below="@id/ageField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button android:id="@+id/backButton"
-            android:layout_below="@id/typedField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/back" />
-
-        <Button android:id="@+id/finishButton"
-            android:layout_below="@+id/backButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/finish" />
-
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="298dp"
+        android:layout_height="251dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="65dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+</androidx.constraintlayout.widget.ConstraintLayout>

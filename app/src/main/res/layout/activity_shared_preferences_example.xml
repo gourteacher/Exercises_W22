@@ -18,9 +18,10 @@
         android:layout_height="wrap_content"
         android:text="@string/save" />
 
-    <Button android:id="@+id/backButton"
-        android:layout_below="@id/typedField"
+    <Button
+        android:id="@+id/backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/back" />
+        android:text="Button" />
+
 </LinearLayout>

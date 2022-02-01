@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cst2335.exercises">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Exercises">
-        <activity android:name=".SharedPreferencesExample"/>
-        <activity android:name=".ActivityIntentExamples"/>
-        <activity android:name=".SecondActivity"/>
+        <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RequestPermissionsActivity"
+            android:exported="false" />
+        <activity android:name=".SharedPreferencesExample" />
+        <activity android:name=".ActivityIntentExamples" />
+        <activity android:name=".SecondActivity" />
         <activity
             android:name=".FirstActivity"
             android:exported="true">
@@ -22,5 +29,13 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACTION_OPEN_DOCUMENT" />
+    <uses-permission android:name="android.permission.ACTION_VIDEO_CAPTURE" />
+    <uses-permission android:name="android.permission.ACTION_CALL" />
+    <uses-permission android:name="android.permission.ACTION_VIEW" />
 
 </manifest>
