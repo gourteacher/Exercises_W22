@@ -36,13 +36,6 @@ public class SecondActivity extends AppCompatActivity {
                         try {
                             Intent data = result.getData();
 
-                            //File whereAmI = getFilesDir();//where your app is installed
-                            //Bitmap thumbnail = data.getParcelableExtra("data");
-                            //FileOutputStream file = openFileOutput("MyPicture.png", Context.MODE_PRIVATE);
-                            //thumbnail.compress(Bitmap.CompressFormat.PNG, 100, file);
-                            //file.flush();
-                            //file.close();
-
                             Bitmap imgbitmap = (Bitmap) data.getExtras().get("data");
                             imgv.setImageBitmap(imgbitmap);
                         }
