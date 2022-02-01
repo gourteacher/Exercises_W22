@@ -20,7 +20,7 @@
         android:text="@string/data_received_from_activity"
         android:textSize="24sp" />
 
-    <TextView
+    <EditText
         android:id="@+id/pref_reserve_name"
         android:layout_width="match_parent"
         android:layout_height="53dp"

@@ -21,7 +21,7 @@ public class SharedPreferencesExample extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences(FirstActivity.PREFERENCES_FILE, MODE_PRIVATE);
         String previous = prefs.getString("ReserveName", "Default Value");
-        editText.setText("ReserveName = " + previous);
+        editText.setText( previous);
 
         Intent fromPrevious = getIntent();
         String input = fromPrevious.getStringExtra("USERINPUT"); //if "USERINPUT" is not found, return null
@@ -30,17 +30,17 @@ public class SharedPreferencesExample extends AppCompatActivity {
 
         EditText userInput = findViewById(R.id.pref_user_input);
         if ( !input.isEmpty()) {
-            userInput.setText("User input = " + input);
+            userInput.setText(input);
         }
         TextView tv1 = findViewById(R.id.pref_month);
-        tv1.setText("Month = " + Integer.toString(month));
+        tv1.setText(Integer.toString(month));
         TextView tv2 = findViewById(R.id.pref_other_info);
-        tv2.setText("Other Info = " + Double.toString(other));
+        tv2.setText(Double.toString(other));
 
         saveButton.setOnClickListener(clk -> {
             SharedPreferences.Editor writer = prefs.edit();
-            writer.putString("ReserveName", "My Value");
-            writer.putString("USERINPUT", input);
+            writer.putString("ReserveName", editText.getText().toString());
+            writer.putString("USERINPUT", userInput.getText().toString());
             writer.putInt("MONTH", month);
             writer.putFloat("OTHER INFO", (float)other);
 

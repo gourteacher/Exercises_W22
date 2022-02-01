@@ -28,8 +28,7 @@ public class FirstActivity extends AppCompatActivity {
         //Read preferences
         String previous = prefs.getString("ReserveName", "Default Value");
         TextView edit = findViewById(R.id.reserved_name);
-        edit.setText("ReserveName = " + previous);
-        Log.i(TAG, " onCreate " + previous);
+        edit.setText(previous);
 
         Button btn = findViewById(R.id.start_button);
         btn.setOnClickListener(  (  click ) ->
