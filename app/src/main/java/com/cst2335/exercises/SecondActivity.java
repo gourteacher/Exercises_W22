@@ -17,10 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.app.Activity;
 import android.widget.ImageView;
-;import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 
 public class SecondActivity extends AppCompatActivity {
@@ -29,7 +25,7 @@ public class SecondActivity extends AppCompatActivity {
 
     ImageView imgv;
 
-    ActivityResultLauncher<Intent> myActivityLauncher = registerForActivityResult(
+    ActivityResultLauncher<Intent> myPictureTakerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult()
             ,new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -71,22 +67,13 @@ public class SecondActivity extends AppCompatActivity {
         double other = fromPrevious.getDoubleExtra("OTHER INFO", 0.0);//if "OTHERINFO" is not found, return 0.0
 
         //save data from first page:
-        SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences(FirstActivity.PREFERENCES_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor writer = prefs.edit();
         writer.putString("USERINPUT", input);
         writer.putInt("MONTH", month);
         writer.putFloat("OTHER INFO", (float)other);
 
         writer.apply(); //save to disk
-
-        Button perm = findViewById( R.id.permissions);
-        perm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(SecondActivity.this, RequestPermissionsActivity.class);
-                startActivity(i);
-            }
-        });
 
         Button cam = findViewById( R.id.start_camera);
         cam.setOnClickListener(new View.OnClickListener() {
@@ -95,13 +82,16 @@ public class SecondActivity extends AppCompatActivity {
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                    myActivityLauncher.launch(takePictureIntent);
+                    myPictureTakerLauncher.launch(takePictureIntent);
                 }
             }
         });
 
         //Picture container
         imgv = findViewById( R.id.picture);
+
+        Button term = findViewById( R.id.intent_return_button);
+        term.setOnClickListener(  click ->  { finish(); } );
     }
 
 }

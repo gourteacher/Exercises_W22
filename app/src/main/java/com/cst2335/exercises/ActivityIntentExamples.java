@@ -1,16 +1,11 @@
 package com.cst2335.exercises;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
 
 public class ActivityIntentExamples extends AppCompatActivity {
 
@@ -53,21 +48,7 @@ public class ActivityIntentExamples extends AppCompatActivity {
             startActivity(i);
         });
 
-        mPhotoLauncher = registerForActivityResult(
-                new ActivityResultContracts.GetContent(),
-                new ActivityResultCallback<Uri>() {
-                    @Override
-                    public void onActivityResult(Uri result) {
-                        ImageView iv = findViewById(R.id.imageView);
-                        iv.setImageURI(result);
-                    }
-                }
-        );
-
-
-        Button start = findViewById(R.id.start_result);
-        temp.setOnClickListener( click -> {
-            mPhotoLauncher.launch("image/*");
-        });
+        Button term = findViewById( R.id.intent_return_button);
+        term.setOnClickListener(  click ->  { finish(); } );
     }
 }

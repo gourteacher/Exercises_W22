@@ -6,40 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <Button
-        android:id="@+id/permissions"
-        android:layout_width="235dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="32dp"
-        android:text="Get Permissions"
-        app:layout_constraintBottom_toTopOf="@+id/start_camera"
+    <TextView
+        android:id="@+id/activitytwo"
+        android:layout_width="347dp"
+        android:layout_height="54dp"
+        android:text="Activity Two"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/start_camera"
-        android:layout_width="243dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="156dp"
+        android:layout_width="312dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="8dp"
         android:text="Start Camera"
         app:layout_constraintBottom_toTopOf="@+id/picture"
+        app:layout_constraintTop_toBottomOf="@+id/activitytwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/picture"
-        android:layout_width="298dp"
-        android:layout_height="251dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginStart="65dp"
+        android:layout_width="335dp"
+        android:layout_height="229dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/intent_return_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_camera"
+        app:srcCompat="@android:drawable/picture_frame" />
+
+    <Button
+        android:id="@+id/intent_return_button"
+        android:layout_width="294dp"
+        android:layout_height="65dp"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toBottomOf="@+id/picture"
+        app:layout_constraintVertical_bias="0.466" />
 </androidx.constraintlayout.widget.ConstraintLayout>

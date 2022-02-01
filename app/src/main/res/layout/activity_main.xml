@@ -7,10 +7,17 @@
 
     <!--   @string means in strings.xml   -->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Activity One"
+        android:textSize="24sp" />
+
     <Button
         android:id="@+id/start_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="68dp"
         android:layout_marginBottom="50dp"
         android:text="@string/main_button"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,23 +26,51 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/start_button_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/start_activity_for_result" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/enter_text"
-        android:inputType="textPersonName" />
-
-    <Button
         android:id="@+id/intent_examples"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:text="@string/intent_examples" />
+
+    <Button
+        android:id="@+id/shared_preferences"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:text="@string/preferences_activity" />
+
+    <TextView
+        android:id="@+id/dataToPassToActivity"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:text="Data To Pass To Next Activity"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/reserved_name"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/user_input"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:hint="Enter some data"
+        android:inputType="textPersonName"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/other_Info"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="24sp" />
 
 </LinearLayout>

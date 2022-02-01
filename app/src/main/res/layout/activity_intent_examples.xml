@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="106dp"
+        android:text="Intent Examples Activity"
+        android:textSize="24sp" />
+
     <Button android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sendEmailExample"
@@ -21,15 +28,9 @@
         android:text="@string/call"/>
 
     <Button
-        android:id="@+id/start_result"
+        android:id="@+id/intent_return_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Result" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="390dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="@string/back" />
 
 </LinearLayout>

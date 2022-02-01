@@ -1,8 +1,6 @@
 <resources>
-    <string name="app_name">Exercises</string>
+    <string name="app_name">Exercises - Activities and Intents</string>
 
-    <string name="firstButton">Go to activity 2</string>
-    <string name="secondButton">Go to activity 3</string>
     <string name="finish">Finish</string>
     <string name="save">Save</string>
     <string name="back">Back</string>
@@ -11,10 +9,14 @@
     <string name="viewURL">Go to a URL</string>
     <string name="call">Make a phone call</string>
 
-    <string name="hello_message"> Hello world   </string>
-    <string name="main_button"> Start Second Activity </string>
+    <string name="main_button">Go to Second Activity </string>
     <string name="enter_text">Enter text</string>
-    <string name="intent_examples">Intent Examples</string>
+    <string name="intent_examples">Go to Intent Examples</string>
     <string name="start_activity_for_result">Start Activity For Result</string>
+    <string name="type_something">Type something</string>
+    <string name="preferences_activity">Preferences Activity</string>
+    <string name="preferences_reserved_name">Preferences - Reserved Name</string>
+    <string name="data_received_from_activity">Data Received From Activity</string>
+    <string name="pref_userinput">UserInput</string>
 
 </resources>

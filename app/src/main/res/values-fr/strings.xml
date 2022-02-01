@@ -6,4 +6,6 @@
     <string name="enter_phone_number">Numéro de téléphone</string>
     <string name="i_m_a_switch">I\'m a switch</string>
     <string name="i_m_a_radio_button">I\'m a radio button</string>
+    <string name="back">Back</string>
+    <string name="type_something">Type something</string>
 </resources>
