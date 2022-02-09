@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity {
@@ -52,6 +53,32 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+
+        myList.setOnItemLongClickListener( (p, b, pos, id) -> {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("Make a choice")
+
+                    //What is the message:
+                    .setMessage("Do you want to add a row")
+
+                    //what the Yes button does:
+                    .setPositiveButton("Yes", (click, arg) -> {
+                        elements.add("HELLO");
+                        myAdapter.notifyDataSetChanged();
+                    })
+                    //What the No button does:
+                    .setNegativeButton("No", (click, arg) -> { })
+
+                    //An optional third button:
+                    .setNeutralButton("Maybe", (click, arg) -> {  })
+
+                    //You can add extra layout elements:
+                    .setView(getLayoutInflater().inflate(R.layout.row_layout, null) )
+
+                    //Show the dialog
+                    .create().show();
+            return true;
+        });
 
 
 
