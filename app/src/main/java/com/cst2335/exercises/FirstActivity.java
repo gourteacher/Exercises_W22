@@ -1,6 +1,7 @@
 package com.cst2335.exercises;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +11,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class FirstActivity extends AppCompatActivity {
-    private ArrayList<String> elements = new ArrayList<>( Arrays.asList( "One", "Two", "Three" ) );
+
+    private static final String TAG = "MainActivity";
+
+    private ArrayList<String> elements = new ArrayList<>( );
     MyListAdapter myAdapter;
 
     @Override
@@ -35,46 +35,13 @@ public class FirstActivity extends AppCompatActivity {
         //myList.setAdapter( myAdapter);
         myList.setAdapter( myAdapter = new MyListAdapter());
 
-        myList.setOnItemClickListener ( ( parent, view, pos, id) -> {
-            elements.remove(pos);
-            myAdapter.notifyDataSetChanged();
-        })  ;
 
         Button addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener( click -> {
-            elements.add("Hi");
-            myAdapter.notifyDataSetChanged();
+
+            Log.i(TAG, "addButton");
         });
 
-        myList.setOnItemLongClickListener( (p, b, pos, id) -> {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("A title")
-
-                    //What is the message:
-                    .setMessage("Do you want to add stuff")
-
-                    //what the Yes button does:
-                    .setPositiveButton("Yes", (click, arg) -> {
-                        elements.add("HELLO");
-                        myAdapter.notifyDataSetChanged();
-                    })
-                    //What the No button does:
-                    .setNegativeButton("No", (click, arg) -> { })
-
-                    //An optional third button:
-                    .setNeutralButton("Maybe", (click, arg) -> {  })
-
-                    //You can add extra layout elements:
-                    .setView(getLayoutInflater().inflate(R.layout.row_layout, null) )
-
-                    //Show the dialog
-                    .create().show();
-            return true;
-        });
-
-        //Whenever you swipe down on the list, do something:
-        SwipeRefreshLayout refresher = findViewById(R.id.refresher);
-        refresher.setOnRefreshListener( () -> refresher.setRefreshing(false)  );
     }
 
     private class MyListAdapter extends BaseAdapter {
