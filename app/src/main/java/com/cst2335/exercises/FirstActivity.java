@@ -9,15 +9,15 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    private ArrayList<String> elements = new ArrayList<>( );
+    private ArrayList<String> elements = new ArrayList<>(  );
     MyListAdapter myAdapter;
 
     @Override
@@ -34,7 +34,6 @@ public class FirstActivity extends AppCompatActivity {
         //ListAdapter myAdapter = new MyListAdapter();
         //myList.setAdapter( myAdapter);
         myList.setAdapter( myAdapter = new MyListAdapter());
-
 
         Button addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener( click -> {
