@@ -39,8 +39,6 @@ public class FirstActivity extends AppCompatActivity {
 
         Button addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener( click -> {
-
-            Log.i(TAG, "Adding a row");
             elements.add( "Another Row");
             myAdapter.notifyDataSetChanged();
         });
@@ -52,8 +50,7 @@ public class FirstActivity extends AppCompatActivity {
                 myAdapter.notifyDataSetChanged();
             }
         });
-
-
+        
         myList.setOnItemLongClickListener( (p, b, pos, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Make a choice")
