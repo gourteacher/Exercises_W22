@@ -1,99 +1,104 @@
 package com.cst2335.exercises;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class FirstActivity extends AppCompatActivity {
+    private ArrayList<String> elements = new ArrayList<>( Arrays.asList( "One", "Two", "Three" ) );
+    MyListAdapter myAdapter;
 
-    public final static String TAG ="FirstActivity";
-
-    public final static String PREFERENCES_FILE = "MyData";
-
-    @Override     //first called
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); //calls parent onCreate()
+        //Your program starts here
+        super.onCreate(savedInstanceState);
 
-        Log.i(TAG, "In onCreate, creating the objects");
-        setContentView( R.layout.activity_main ); //loads XML on screen
+        // setContentView loads objects onto the screen.
+        // Before this function, the screen is empty.
+        setContentView(R.layout.activity_main);
 
-        SharedPreferences prefs = getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
-        //Read preferences
-        String previous = prefs.getString("ReserveName", "Default Value");
-        TextView edit = findViewById(R.id.reserved_name);
-        edit.setText(previous);
+        ListView myList = findViewById(R.id.theListView);
+        //Line 37 is the same as lines 35 and 36:
+        //ListAdapter myAdapter = new MyListAdapter();
+        //myList.setAdapter( myAdapter);
+        myList.setAdapter( myAdapter = new MyListAdapter());
 
-        Button btn = findViewById(R.id.start_button);
-        btn.setOnClickListener(  (  click ) ->
+        myList.setOnItemClickListener ( ( parent, view, pos, id) -> {
+            elements.remove(pos);
+            myAdapter.notifyDataSetChanged();
+        })  ;
+
+        Button addButton = findViewById(R.id.addButton);
+        addButton.setOnClickListener( click -> {
+            elements.add("Hi");
+            myAdapter.notifyDataSetChanged();
+        });
+
+        myList.setOnItemLongClickListener( (p, b, pos, id) -> {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setTitle("A title")
+
+                    //What is the message:
+                    .setMessage("Do you want to add stuff")
+
+                    //what the Yes button does:
+                    .setPositiveButton("Yes", (click, arg) -> {
+                        elements.add("HELLO");
+                        myAdapter.notifyDataSetChanged();
+                    })
+                    //What the No button does:
+                    .setNegativeButton("No", (click, arg) -> { })
+
+                    //An optional third button:
+                    .setNeutralButton("Maybe", (click, arg) -> {  })
+
+                    //You can add extra layout elements:
+                    .setView(getLayoutInflater().inflate(R.layout.row_layout, null) )
+
+                    //Show the dialog
+                    .create().show();
+            return true;
+        });
+
+        //Whenever you swipe down on the list, do something:
+        SwipeRefreshLayout refresher = findViewById(R.id.refresher);
+        refresher.setOnRefreshListener( () -> refresher.setRefreshing(false)  );
+    }
+
+    private class MyListAdapter extends BaseAdapter {
+
+        public int getCount() { return elements.size();}
+
+        public Object getItem(int position) { return "This is row " + position; }
+
+        public long getItemId(int position) { return (long) position; }
+
+        public View getView(int position, View old, ViewGroup parent)
         {
-                                            //Where you are     //where we're going
-            Intent nextPage = new Intent(FirstActivity.this,   SecondActivity.class  );
-            //Make the transition:
-            startActivity(nextPage);
+            LayoutInflater inflater = getLayoutInflater();
 
-        } ); //OnCLickListener goes in here
+            //make a new row:
+            View newView = inflater.inflate(R.layout.row_layout, parent, false);
 
+            //set what the text should be for this row:
+            TextView tView = newView.findViewById(R.id.textGoesHere);
+            tView.setText( getItem(position).toString() );
 
-        Button btn2 = findViewById(R.id.intent_examples);
-        btn2.setOnClickListener( (  click ) ->
-        {
-            Intent nextPage = new Intent(FirstActivity.this,   ActivityIntentExamples.class  );
-            //Make the transition:
-            startActivity(    nextPage  );
-        }); //OnCLickListener goes in here
-
-        //SharedPreferencesExample
-        Button btn3 = findViewById(R.id.shared_preferences);
-        btn3.setOnClickListener( (  click ) ->
-        {
-            EditText userText = findViewById(R.id.user_input);
-            String userTyped = userText.getText().toString();
-            Intent nextPage = new Intent(FirstActivity.this,   SharedPreferencesExample.class  );
-
-            nextPage.putExtra("USERINPUT", userTyped);
-            nextPage.putExtra("MONTH", 10);
-            nextPage.putExtra("OTHER INFO", 3.14);
-
-            //Make the transition:
-            startActivity(    nextPage  );
-            });
-    }
-
-    @Override //screen is visible but not responding
-    protected void onStart() {
-        super.onStart();
-
-        Log.d(TAG, "In onStart, visible but not responding");
-    }
-
-    @Override //screen is visible but not responding
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "In onResume");
-    }
-
-    @Override //screen is visible but not responding
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "In onPause");
-    }
-
-    @Override //not visible
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, "In onStop");
-    }
-
-    @Override  //garbage collected
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "In onDestroy");
+            //return it to be put in the table
+            return newView;
+        }
     }
 }
+

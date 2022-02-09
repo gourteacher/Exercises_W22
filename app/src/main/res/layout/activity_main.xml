@@ -1,76 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--   @string means in strings.xml   -->
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Activity One"
-        android:textSize="24sp" />
-
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/main_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="wrap_content"
+        android:text="add"/>
 
-    <Button
-        android:id="@+id/intent_examples"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresher"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="@string/intent_examples" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/shared_preferences"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:text="@string/preferences_activity" />
+        <ListView
+            android:id="@+id/theListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/dataToPassToActivity"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:text="Data To Pass To Next Activity"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/reserved_name"
-        android:layout_width="match_parent"
-        android:layout_height="73dp"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/user_input"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:ems="10"
-        android:hint="Enter some data"
-        android:inputType="textPersonName"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/month"
-        android:layout_width="match_parent"
-        android:layout_height="91dp"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/other_Info"
-        android:layout_width="match_parent"
-        android:layout_height="83dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp" />
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
