@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -38,8 +39,21 @@ public class FirstActivity extends AppCompatActivity {
         Button addButton = findViewById(R.id.addButton);
         addButton.setOnClickListener( click -> {
 
-            Log.i(TAG, "addButton");
+            Log.i(TAG, "Adding a row");
+            elements.add( "Another Row");
+            myAdapter.notifyDataSetChanged();
         });
+
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                elements.remove(i);
+                myAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+
 
     }
 
@@ -61,6 +75,9 @@ public class FirstActivity extends AppCompatActivity {
             //set what the text should be for this row:
             TextView tView = newView.findViewById(R.id.textGoesHere);
             tView.setText( getItem(position).toString() );
+
+            //Button b =  newView.findViewById(R.id.textGoesHere);
+            //b.setText( getItem(position).toString() );
 
             //return it to be put in the table
             return newView;
