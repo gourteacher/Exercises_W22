@@ -11,8 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,6 +46,8 @@ public class FirstActivity extends AppCompatActivity {
         theAdapter = new MyAdapter();
         rView.setAdapter( theAdapter ) ;
         rView.setLayoutManager(new LinearLayoutManager(this));
+        //rView.setLayoutManager(new GridLayoutManager (this, 2) );
+
 
         submit.setOnClickListener( click ->{
             String whatIsTyped = edit.getText().toString();
@@ -61,7 +65,7 @@ public class FirstActivity extends AppCompatActivity {
 
                 //notify that new data was added at a row:
                 theAdapter.notifyItemInserted(messages.size() - 1); //at the end of ArrayList,
-                // call onCreateViewHolder, onBindViewHolder()
+
             }
         });
 
@@ -69,22 +73,31 @@ public class FirstActivity extends AppCompatActivity {
 
     public class MyAdapter extends RecyclerView.Adapter< MyViewHolder > {
 
+        //It inflates the view hierarchy
+        //and creates an instance of the ViewHolder class
+        //initialized with the view hierarchy before
+        //returning it to the RecyclerView.
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             //Load a new row from the layout file:
             LayoutInflater li = getLayoutInflater();
-            View thisRow;
-            //import layout for a row:
 
-            thisRow = li.inflate(R.layout.sent_message, parent, false);
+            //import layout for a row:
+            View thisRow = li.inflate(R.layout.sent_message, parent, false);
 
             return new MyViewHolder( thisRow );
         }
 
 
-        //initializes a Row at position
+        //Populates the view hierarchy within the ViewHolder object
+        //with the data to be displayed.
+        //It is passed the ViewHolder object and an integer
+        //value indicating the list item that is to be displayed.
+        //This data is then displayed on the layout views using the references
+        //created in the constructor method of the ViewHolder class
+        //initializes a Row at position in the data array
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) { //need an ArrayList to hold all the messages.
             //MyViewHolder has time and message textViews
@@ -97,11 +110,7 @@ public class FirstActivity extends AppCompatActivity {
             holder.messageView.setText( thisRow.getMessageTyped() );//what message goes on row position
         }
 
-        public int getItemViewType(int position){
-            return 5;
-//            messages.get(position).getSentOrReceived();//return 1 or 2 depending if it's sent or received
-        }
-
+        //returns the number of items in the array
         @Override
         public int getItemCount() {
             return messages.size() ; //how many items in the list
@@ -116,6 +125,9 @@ public class FirstActivity extends AppCompatActivity {
         //View will be a ConstraintLayout
         public MyViewHolder(View itemView) {
             super(itemView);
+
+            timeView = itemView.findViewById(R.id.time);
+            messageView = itemView.findViewById(R.id.message);
 
             itemView.setOnClickListener( click -> {
                 int position = getAdapterPosition();//which row was clicked.
@@ -132,9 +144,6 @@ public class FirstActivity extends AppCompatActivity {
                             theAdapter.notifyItemRemoved(position);
                         }).create().show();
             });
-
-            timeView = itemView.findViewById(R.id.time);
-            messageView = itemView.findViewById(R.id.message);
         }
     }
 
