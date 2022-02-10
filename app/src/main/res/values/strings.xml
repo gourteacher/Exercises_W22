@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Exercises - ListView</string>
-
+    <string name="app_name">Exercises - RecyclerView </string>
+    <string name="button_text"> I\'m a button </string>
 
 </resources>
