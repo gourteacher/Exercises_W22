@@ -9,7 +9,7 @@
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send"
+        android:text="@string/send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:ems="10"
-        android:hint="Enter your message"
+        android:hint="@string/enter_your_message"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
