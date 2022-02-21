@@ -64,7 +64,6 @@ public class FirstActivity extends AppCompatActivity {
         { //pointing to row 2
             int id = results.getInt(idIndex);
             String message = results.getString( messageIndex );
-            int sendOrRecieve = results.getInt(sOrRIndex);
             String time = results.getString( timeIndex);
 
             //add to arrayList:
@@ -78,42 +77,44 @@ public class FirstActivity extends AppCompatActivity {
         theAdapter = new MyAdapter();
         rView.setAdapter( theAdapter ) ;
         rView.setLayoutManager(new LinearLayoutManager(this));
-        //rView.setLayoutManager(new GridLayoutManager (this, 2) );
-
 
         submit.setOnClickListener( click ->{
             String whatIsTyped = edit.getText().toString();
-            Date timeNow = new Date(); //when was this code run
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+            if (!whatIsTyped.isEmpty()) {
 
-            String currentDateandTime = sdf.format( timeNow ); //convert date to String
-            //insert into database:
-            ContentValues newRow = new ContentValues();// like intent or Bundle
+                Date timeNow = new Date(); //when was this code run
 
-            //Message column:
-            newRow.put( MyOpenHelper.COL_MESSAGE , whatIsTyped  );
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+                String currentDateandTime = sdf.format(timeNow); //convert date to String
 
-            //Send or receive column:
-            newRow.put(MyOpenHelper.COL_SEND_RECEIVE, 1);
+                //insert into database:
+                ContentValues newRow = new ContentValues();// like intent or Bundle
 
-            //TimeSent column:
-            newRow.put( MyOpenHelper.COL_TIME_SENT, currentDateandTime );
+                //Message column:
+                newRow.put(MyOpenHelper.COL_MESSAGE, whatIsTyped);
 
-            //now that columns are full, you insert:
+                //Send or receive column:
+                newRow.put(MyOpenHelper.COL_SEND_RECEIVE, 1);
 
-            long id = theDatabase.insert( MyOpenHelper.TABLE_NAME, null, newRow ); //returns the id
+                //TimeSent column:
+                newRow.put(MyOpenHelper.COL_TIME_SENT, currentDateandTime);
 
-            Message cm = new Message(whatIsTyped, currentDateandTime, id) ;
+                //now that columns are full, you insert:
 
-            //adding a new message to our history:
-            messages.add( cm ); //what is the database id?
+                long id = theDatabase.insert(MyOpenHelper.TABLE_NAME, null, newRow); //returns the id
 
-            edit.setText("");//clear the text
+                Message cm = new Message(whatIsTyped, currentDateandTime, id);
 
-            //notify that new data was added at a row:
-            theAdapter.notifyItemInserted( messages.size() - 1 ); //at the end of ArrayList,
-            // call onCreateViewHolder, onBindViewHolder()
+                //adding a new message to our history:
+                messages.add(cm); //what is the database id?
+
+                edit.setText("");//clear the text
+
+                //notify that new data was added at a row:
+                theAdapter.notifyItemInserted(messages.size() - 1); //at the end of ArrayList,
+                // call onCreateViewHolder, onBindViewHolder()
+            }
 
         });
 
