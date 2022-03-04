@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import android.graphics.Color;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -26,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+        collapsingToolbarLayout.setTitle("My Toolbar Title");
+        collapsingToolbarLayout.setContentScrimColor(Color.GREEN);
+
 
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
