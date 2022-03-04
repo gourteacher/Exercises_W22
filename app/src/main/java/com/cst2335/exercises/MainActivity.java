@@ -1,68 +1,39 @@
 package com.cst2335.exercises;
 
-
-import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import android.graphics.Color;
 public class MainActivity extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-    private RecyclerView.Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("My Toolbar Title");
-        collapsingToolbarLayout.setContentScrimColor(Color.GREEN);
-
-
-        recyclerView = findViewById(R.id.recyclerView);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerAdapter();
-        recyclerView.setAdapter(adapter);
-
+        MyHTTPRequest req = new MyHTTPRequest();
+        req.execute("http://torunski.ca/CST2335_XML.xml");  //Type 1
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                                                //Type1     Type2   Type3
+    private class MyHTTPRequest extends AsyncTask< String, Integer, String>
+    {
+               //Type3                Type1
+        public String doInBackground(String ... args)
+        {
+            return "Done";
         }
 
-        return super.onOptionsItemSelected(item);
+        //Type 2
+        public void onProgressUpdate(Integer ... args)
+        {
+
+        }
+                                //Type3
+        public void onPostExecute(String fromDoInBackground)
+        {
+            Log.i("HTTP", fromDoInBackground);
+        }
     }
-
-
 }
