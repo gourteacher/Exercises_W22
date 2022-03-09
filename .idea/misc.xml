@@ -24,9 +24,11 @@
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_example.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_message_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_text.xml" value="0.12916666666666668" />
         <entry key="app/src/main/res/layout/fragment_toolbar.xml" value="0.14322916666666666" />
+        <entry key="app/src/main/res/layout/message_detail_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/sent_message.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.125" />
       </map>

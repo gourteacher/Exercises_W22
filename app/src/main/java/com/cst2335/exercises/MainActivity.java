@@ -9,26 +9,33 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  implements MessageListFragment.OnItemSelectedListener {
 
+    boolean isTablet = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.empty_layout);
 
+        isTablet = findViewById(R.id.flContainer2) != null;
+
         if (savedInstanceState == null) {
+
             // Instance of first fragment
             MessageListFragment firstFragment = new MessageListFragment();
 
             // Add Fragment to FrameLayout (flContainer), using FragmentManager
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();// begin  FragmentTransaction
             ft.setReorderingAllowed(true);
-            ft.add(R.id.flContainer, firstFragment);    // add    Fragment
+            ft.add(R.id.flContainer1, firstFragment);    // add    Fragment
             ft.commit();     // commit FragmentTransaction
 
-            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            //if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if (isTablet)  {
                 MessageDetailFragment secondFragment = new MessageDetailFragment();
                 Bundle args = new Bundle();
                 args.putInt("position", 0);
                 secondFragment.setArguments(args);  // Communicate with Fragment using Bundle
+
                 FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
                 ft2.setReorderingAllowed(true);
                 ft2.add(R.id.flContainer2, secondFragment);
@@ -48,7 +55,8 @@ public class MainActivity extends AppCompatActivity  implements MessageListFragm
         args.putInt("position", position);
         secondFragment.setArguments(args); // (1) Communicate with Fragment using Bundle
 
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        //if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        if (isTablet)  {
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
@@ -58,7 +66,7 @@ public class MainActivity extends AppCompatActivity  implements MessageListFragm
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                    .replace(R.id.flContainer, secondFragment)
+                    .replace(R.id.flContainer1, secondFragment)
                     .addToBackStack(null)
                     .commit();
         }
