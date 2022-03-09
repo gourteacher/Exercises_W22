@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Exercises </string>
+    <string name="app_name">Exercises - Fragments (1)</string>
     <string name="time_goes_here">Time goes here</string>
     <string name="message_goes_here">Message goes here</string>
     <string name="send">Send</string>

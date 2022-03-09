@@ -3,18 +3,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginEnd="5dp">
 
     <FrameLayout
-        android:id="@+id/fragmentRoom"
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:background="@color/purple_200" />
+        android:id="@+id/flContainer"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"/>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/detailsRoom"
-        android:background="@color/teal_700"    />
+        android:id="@+id/flContainer2"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

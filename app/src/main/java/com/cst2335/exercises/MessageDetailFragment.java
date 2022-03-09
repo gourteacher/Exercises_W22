@@ -1,84 +1,45 @@
 package com.cst2335.exercises;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.fragment.app.Fragment;
 
 public class MessageDetailFragment extends Fragment {
+    int position = 0;
+    TextView tvTitle;
+    TextView tvDetails;
 
-    static private final String TAG = "MessageDetailFragment";
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    TextView tv;
-
-    MessageListFragment.Message chosenMessage;
-    int position;
-
-    public MessageDetailFragment(MessageListFragment.Message clicked, int pos){
-        chosenMessage=clicked;
-        position=pos;
+        if(savedInstanceState == null){
+            // Get back arguments
+            if(getArguments() != null) {
+                position = getArguments().getInt("position", 0);
+            }
+        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //load the layout:
-        Log.i(TAG, "onCreateView");
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
 
-        View detailsLayout = inflater.inflate(R.layout.detail_layout, container, false);
-        tv = detailsLayout.findViewById(R.id.textView);
-
-        tv.setText("Message: "+ chosenMessage.getMessageTyped());
-
-        return detailsLayout;//return what was inflated
-    }
-
-    public void onCreate(Bundle b) {
-        super.onCreate(b);
+        // Inflate the xml file for the fragment
+        return inflater.inflate(R.layout.fragment_message_detail, parent, false);
     }
 
     @Override
-    public void onStart () {
-        super.onStart();
-        Log.i(TAG, "onStart");
-    }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Set values for view here
+        tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+        tvDetails = (TextView) view.findViewById(R.id.tvDetails);
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.i(TAG, "onPause");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.i(TAG, "onStop");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, "onDestroy");
-    }
-
-    @Override
-    public void onAttach(Context c) {
-        super.onAttach(c);
-        Log.i(TAG, "onAttach");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.i(TAG, "onDetach");
-    }
-
-    @Override
-    public void onViewCreated(View v, Bundle b) {
-        super.onViewCreated(v, b);
-        Log.i(TAG, "onViewCreated");
+        // update view
+        tvTitle.setText(Message.messageList[position]);
+        tvDetails.setText(Message.messageDetails[position]);
     }
 }
