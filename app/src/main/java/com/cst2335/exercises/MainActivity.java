@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity  implements MessageListFragm
 
     @Override
     public void onMessageItemSelected(int position) {
-        Toast.makeText(this, "Called By Fragment A: position - "+ position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Called By Fragment A: position "+ position, Toast.LENGTH_SHORT).show();
 
         // Load Detail Fragment
         MessageDetailFragment secondFragment = new MessageDetailFragment();
