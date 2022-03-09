@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Exercises - Saving To SQLite </string>
+    <string name="app_name">Exercises </string>
     <string name="time_goes_here">Time goes here</string>
     <string name="message_goes_here">Message goes here</string>
     <string name="send">Send</string>
     <string name="enter_your_message">Enter your message</string>
+    <string name="name">Name</string>
+    <string name="submit">Submit</string>
+    <string name="textview">TextView</string>
 
 </resources>

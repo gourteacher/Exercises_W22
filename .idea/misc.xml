@@ -3,18 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout-land/empty_layout.xml" value="0.15945945945945947" />
         <entry key="app/src/main/res/layout/activity_camera.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_database_layout.xml" value="0.12604166666666666" />
+        <entry key="app/src/main/res/layout/activity_empty.xml" value="0.11510416666666666" />
         <entry key="app/src/main/res/layout/activity_intent_examples.xml" value="0.1375" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_main_linear.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/activity_myopenhelper.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_request_permissions.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_shared_preferences_example.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_some.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/message_sent.xml" value="0.12447916666666667" />
-        <entry key="app/src/main/res/layout/row_layout.xml" value="0.2076388888888889" />
-        <entry key="app/src/main/res/layout/sent_message.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layout/card_layout.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/chatroom.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/contact_edit.xml" value="0.12604166666666666" />
+        <entry key="app/src/main/res/layout/contact_row.xml" value="0.12604166666666666" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/detail_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/empty_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_example.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_text.xml" value="0.12916666666666668" />
+        <entry key="app/src/main/res/layout/fragment_toolbar.xml" value="0.14322916666666666" />
+        <entry key="app/src/main/res/layout/sent_message.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.125" />
       </map>
     </option>
   </component>
