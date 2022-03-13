@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     //Type1     Type2   Type3
     private class MyHTTPRequest extends AsyncTask< String, Integer, String>
     {
+        static private final String TAG = "MyHTTPRequest";
         //Type3                Type1
         public String doInBackground(String ... args)
         {
@@ -39,17 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 //wait for data:
                 InputStream response = urlConnection.getInputStream();
 
-
-
-                //From part 3: slide 19
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
                 xpp.setInput( response  , "UTF-8");
 
 
-
-                //From part 3, slide 20
                 String parameter = null;
 
                 int eventType = xpp.getEventType(); //The parser is currently at START_DOCUMENT
@@ -98,12 +94,12 @@ public class MainActivity extends AppCompatActivity {
         //Type 2
         public void onProgressUpdate(Integer ... args)
         {
-
+            Log.i(TAG, "onProgressUpdate");
         }
         //Type3
         public void onPostExecute(String fromDoInBackground)
         {
-            Log.i("HTTP", fromDoInBackground);
+            Log.i(TAG, fromDoInBackground);
         }
     }
 }
