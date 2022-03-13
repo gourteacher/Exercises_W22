@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout-land/empty_layout.xml" value="0.15945945945945947" />
+        <entry key="app/src/main/res/layout-sw600dp/empty_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-sw600dp/fragment_message_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_camera.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_database_layout.xml" value="0.12604166666666666" />
         <entry key="app/src/main/res/layout/activity_empty.xml" value="0.11510416666666666" />
@@ -25,6 +27,7 @@
         <entry key="app/src/main/res/layout/fragment_example.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_message_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_message_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_text.xml" value="0.12916666666666668" />
         <entry key="app/src/main/res/layout/fragment_toolbar.xml" value="0.14322916666666666" />
