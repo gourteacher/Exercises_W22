@@ -6,8 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
+
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -23,13 +22,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MyHTTPRequest req = new MyHTTPRequest();
-        req.execute("https://google.com");  //Type 1
+        req.execute("https://api.publicapis.org/entries");  //Type 1
     }
 
 
     //Type1     Type2   Type3
     private class MyHTTPRequest extends AsyncTask< String, Integer, String>
     {
+        static private final String TAG = "MyHTTPRequest";
+
         //Type3                Type1
         public String doInBackground(String ... args)
         {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 //wait for data:
                 InputStream response = urlConnection.getInputStream();
 
-                //JSON reading:   Look at slide 26
+                //JSON reading:
                 //Build the entire string response:
                 BufferedReader reader = new BufferedReader(new InputStreamReader(response, "UTF-8"), 8);
                 StringBuilder sb = new StringBuilder();
@@ -61,9 +62,12 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject uvReport = new JSONObject(result);
 
                 //get the double associated with "value"
-                double uvRating = uvReport.getDouble("value");
+                int numEntries = uvReport.getInt("count");
 
-                Log.i("MainActivity", "The uv is now: " + uvRating) ;
+                publishProgress(25);
+                Thread.sleep(1000);
+                publishProgress(50);
+                Log.i(TAG, "Num of entries: " + numEntries) ;
 
             }
             catch (Exception e)
@@ -77,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
         //Type 2
         public void onProgressUpdate(Integer ... args)
         {
-
+            Log.i(TAG, "onProgressUpdate");
         }
         //Type3
         public void onPostExecute(String fromDoInBackground)
         {
-            Log.i("HTTP", fromDoInBackground);
+            Log.i(TAG, fromDoInBackground);
         }
     }
 }
