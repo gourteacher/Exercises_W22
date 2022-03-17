@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 task.cancel(true);
 
-                tv.setText(" Activity Canceled");
+
             }});
 
     }
@@ -80,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG, "onProgressUpdate " + args[0] );
         }
 
+        @Override
+        protected void onCancelled(String s) {
+            super.onCancelled(s);
+
+            Log.i(TAG, "onProgressUpdate " + s  );
+
+            tv.setText(s);
+        }
+
         //Type3
         public void onPostExecute(String fromDoInBackground)
         {
@@ -89,5 +98,6 @@ public class MainActivity extends AppCompatActivity {
             tv.setText(fromDoInBackground);
 
         }
+
     }
 }
