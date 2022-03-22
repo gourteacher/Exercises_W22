@@ -25,4 +25,9 @@
     <string name="decrease">Decrease</string>
     <string name="increase">Increase</string>
     <string name="clear">Clear</string>
+    <string name="share">Share</string>
+    <string name="support">Support</string>
+
+    <string name="communications">Communications</string>
+
 </resources>

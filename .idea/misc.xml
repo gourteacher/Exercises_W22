@@ -3,19 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout-sw600dp/nav_header.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_camera.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_intent_examples.xml" value="0.1375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_main_linear.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_menu_example.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_request_permissions.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_shared_preferences_example.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_some.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/actuvity_menu_example.xml" value="0.1" />
         <entry key="app/src/main/res/layout/card_layout.xml" value="0.125" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/header_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_toolbar.xml" value="0.18802083333333333" />
+        <entry key="app/src/main/res/layout/popout_header.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/menu/activity_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.2324074074074074" />
+        <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/main_activity_actions.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.14" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.125" />
+        <entry key="app/src/main/res/menu/my_menu.xml" value="0.18" />
+        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.1171875" />
+        <entry key="app/src/main/res/menu/popout_menu.xml" value="0.25104166666666666" />
       </map>
     </option>
   </component>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/share_item"
+        android:title="@string/share" />
+    <!-- This uses showAsAction=always, so look at icon= parameter -->
+
+
+    <item
+        android:id="@+id/app_bar_search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always"
+        android:title="Search" />
+
+    <item android:title="@string/support">
+        <menu>
+
+        <item
+                android:id="@+id/mail_item"
+                android:icon="@drawable/mail"
+                android:orderInCategory="75"
+                android:title="@string/mail"
+                app:showAsAction="ifRoom" />
+        </menu>
+    </item>
+
+
+    <item android:title="@string/communications">
+    <menu>
+        <item
+            android:id="@+id/call_item"
+            android:icon="@android:drawable/sym_action_call"
+            android:orderInCategory="50"
+            android:title="@string/call" />
+        <item
+            android:id="@+id/video_item"
+            android:icon="@android:drawable/presence_video_online"
+            android:orderInCategory="80"
+            android:title="@string/video" />
+    </menu>
+    </item>
+</menu>

@@ -10,10 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exercises.MyActionBar">
         <activity
-            android:name=".SomeActivity"
-            android:parentActivityName=".MenuExample"
-            android:exported="false" />
-        <activity
             android:name=".MenuExample"
             android:exported="true">
             <intent-filter>
