@@ -14,9 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Exercises.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+
+    <style name="Theme.Exercises.MyActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/simple_yellow</item>
+        <item name="colorSecondary">#DCAB63</item>
+        <item name="colorOnPrimary">@color/primary_blue</item>
     </style>
 
     <style name="Theme.Mybasic.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
