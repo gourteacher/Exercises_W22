@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exercises.MyActionBar">
         <activity
-            android:name=".BroadcastActivity"
+            android:name=".MainActivity"
             android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
