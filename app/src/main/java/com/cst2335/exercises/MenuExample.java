@@ -2,6 +2,7 @@ package com.cst2335.exercises;
 
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -70,4 +71,9 @@ public class MenuExample extends AppCompatActivity implements NavigationView.OnN
         return false;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate( R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }
