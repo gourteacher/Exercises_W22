@@ -3,11 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:icon="@drawable/increase"
-        android:title="Item"
-        app:showAsAction="always" />
-    <item
-        android:icon="@drawable/decrease"
-        android:title="Item"
+        android:id="@+id/increaseFontId"
+        android:title="Increase"
         app:showAsAction="always" />
 </menu>
