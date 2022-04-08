@@ -47,5 +47,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
     androidTestImplementation 'androidx.test:rules:1.4.1-alpha05'
     testImplementation 'androidx.test:runner:1.5.0-alpha02'
-    androidTestImplementation 'org.jboss.forge.addon:mockito:2.13.0'
+
 }
