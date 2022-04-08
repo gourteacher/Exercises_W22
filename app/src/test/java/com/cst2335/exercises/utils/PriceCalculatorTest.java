@@ -1,9 +1,6 @@
-package com.cst2335.exercises;
+package com.cst2335.exercises.utils;
 
 import static org.junit.Assert.*;
-
-
-import com.cst2335.exercises.utils.PriceCalculator;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,7 +13,6 @@ public class PriceCalculatorTest {
     @Before
     public void setUp() throws Exception {
         priceCalculator = new PriceCalculator();
-
     }
 
     @After
@@ -44,7 +40,6 @@ public class PriceCalculatorTest {
         assertNotEquals(
                 expectedProductPrice,
                 finalProductPrice);
-
     }
 
 

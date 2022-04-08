@@ -1,8 +1,9 @@
-package com.cst2335.exercises;
+package com.cst2335.exercises.utils;
 
-import static org.junit.Assert.*;
-
-import com.cst2335.exercises.utils.EmailValidator;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,32 +20,7 @@ public class EmailValidatorTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void isValid_true() {
-    }
 
-    @Test
-    public void isValid_false() {
-    }
-
-    @Test
-    public void isValidEmail() {
-    }
-
-    @Test
-    public void afterTextChanged() {
-
-
-
-    }
-
-    @Test
-    public void beforeTextChanged() {
-    }
-
-    @Test
-    public void onTextChanged() {
-    }
 
     @Test
     public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
