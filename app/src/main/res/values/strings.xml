@@ -1,8 +1,5 @@
 <resources>
-    <string name="app_name">Unit Testing</string>
-
-    <string name="user_info_saved">User Info Saved</string>
-
-    <string name="TOAST_STRING">Please enter a name</string>
+    <string name="app_name">Kotlin Example</string>
+    <string name="send">Send</string>
 
 </resources>
